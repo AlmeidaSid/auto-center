@@ -59,6 +59,7 @@ function dados_cliente(){
         email.value = data['cliente']['email']
 
         div_carros = document.getElementById('carros')
+        div_carros.innerHTML = ""
 
         for(i=0; i<data['carros'].length; i++){
             div_carros.innerHTML += "\<form action='/clientes/update_carro/" + data['carros'][i]['id'] +"' method='POST'>\
@@ -73,12 +74,12 @@ function dados_cliente(){
                             <input class='form-control' type='text' name='ano' value='" + data['carros'][i]['fields']['ano'] + "' >\
                         </div>\
                         <div class='col-md'>\
-                            <input class='btn btn-lg btn-success' type='submit'>\
+                            <input class='btn btn-lg btn-success' type='submit' value='ATUALIZAR'>\
                         </div>\
-                    </form>\
-                    <div class='col-md'>\
-                        <a href='/clientes/excluir_carro/"+ data['carros'][i]['id'] +"' class='btn btn-lg btn-danger'>EXCLUIR</a>\
-                    </div>\
+                        <div class='col-md'>\
+                            <a href='/clientes/excluir_carro/"+ data['carros'][i]['id'] +"' class='btn btn-lg btn-danger'>EXCLUIR</a>\
+                        </div>\
+                        </form>\
                 </div><br>"
         }
         
